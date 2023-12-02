@@ -31,7 +31,7 @@ jobs:
         runs-on: windows-2022
         steps:
             - uses: actions/checkout@v3
-            - name: Mamba and samurai env installation
+            - name: Mamba and splinart env installation
               uses: mamba-org/setup-micromamba@v1
               with:
                 environment-file: conda/environment.yml

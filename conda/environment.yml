@@ -8,3 +8,4 @@ dependencies:
   - opencv
   - cli11
   - cxx-compiler
+  - gtest
