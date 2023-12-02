@@ -8,6 +8,7 @@ option(BUILD_TESTS "Build the tests of splinart" OFF)
 
 find_package(xtensor)
 find_package(CLI11)
+set(OpenCV_STATIC ON)
 find_package(OpenCV REQUIRED)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
