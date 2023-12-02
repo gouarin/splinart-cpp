@@ -14,7 +14,6 @@ using namespace xt::placeholders;
 int main(int argc, char* argv[])
 {
     std::size_t img_size   = 1000;
-    std::size_t channels   = 4;
     std::size_t nb_circles = 1;
     std::size_t nb_samples = 10000;
     bool has_random_color  = false;
