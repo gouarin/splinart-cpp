@@ -41,21 +41,21 @@ jobs:
             exit -1
           fi
 
-    tests:
-        runs-on: ${{ matrix.os }}
-        needs: [pre-commit, cpp-check]
-        strategy:
-          fail-fast: false
-          matrix:
-            os:
-              - ubuntu-22.04
-              - macos-12
-        steps:
-            - uses: actions/checkout@v3
+  tests:
+    runs-on: ${{ matrix.os }}
+    needs: [pre-commit, cppcheck]
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - macos-12
+    steps:
+      - uses: actions/checkout@v3
 
-            - uses: prefix-dev/setup-pixi@v0.4.1
-              with:
-                pixi-version: v0.9.1
-                cache: true
+      - uses: prefix-dev/setup-pixi@v0.4.1
+        with:
+          pixi-version: v0.9.1
+          cache: true
 
-            - run: pixi run test
+      - run: pixi run test
