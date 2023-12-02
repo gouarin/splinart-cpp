@@ -27,8 +27,8 @@ int main(int argc, char* argv[])
     app.add_flag("--random-color", has_random_color, "The circle color are randomly selected")->capture_default_str();
     CLI11_PARSE(app, argc, argv);
 
-    auto rand_centers = 0.3 + 0.4 * xt::random::rand<double>({nb_circles, 2UL});
-    auto rand_radius  = 0.2 + 0.1 * xt::random::rand<double>({nb_circles, 1UL});
+    auto rand_centers = 0.3 + 0.4 * xt::random::rand<double>(std::array<std::size_t, 2>{nb_circles, 2UL});
+    auto rand_radius  = 0.2 + 0.1 * xt::random::rand<double>(std::array<std::size_t, 2>{nb_circles, 1UL});
 
     std::vector<splinart::Circle> circles;
     for (std::size_t i = 0; i < nb_circles; i++)
@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 
     if (has_random_color)
     {
-        auto rand_colors = xt::random::rand<double>({nb_circles, 3UL});
+        auto rand_colors = xt::random::rand<double>(std::array<std::size_t, 2>{nb_circles, 3UL});
         for (std::size_t i = 0; i < nb_circles; i++)
         {
             xt::view(circles[i].color, xt::range(_, 3)) = xt::view(rand_colors, i);

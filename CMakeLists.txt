@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.26)
 project(splinart)
 
+set(CMAKE_CXX_STANDARD 17)
+
 option(BUILD_EXAMPLES "Build the examples of splinart" OFF)
 option(BUILD_TESTS "Build the tests of splinart" OFF)
 
 find_package(xtensor)
 find_package(CLI11)
-find_package(OpenCV REQUIRED COMPONENTS core highgui)
+set(OpenCV_STATIC ON)
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 add_library(splinart src/shapes.cpp)
 target_include_directories(
@@ -14,10 +18,15 @@ target_include_directories(
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(splinart xtensor opencv_core opencv_highgui)
+target_link_libraries(splinart xtensor ${OpenCV_LIBS})
 
 add_executable(splinart-cpp src/command_line.cpp)
-target_link_libraries(splinart-cpp splinart CLI11::CLI11)
+
+if(MSVC)
+    target_compile_options(splinart-cpp PUBLIC /MP /bigobj)
+endif()
+
+target_link_libraries(splinart-cpp splinart CLI11::CLI11 ${OpenCV_LIBS})
 
 if (BUILD_EXAMPLES)
     add_subdirectory(examples)

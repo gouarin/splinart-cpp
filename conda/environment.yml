@@ -1,0 +1,11 @@
+name: splinart-env
+channels:
+  - conda-forge
+dependencies:
+  - cmake
+  - ninja
+  - xtensor
+  - opencv
+  - cli11
+  - cxx-compiler
+  # - gtest
