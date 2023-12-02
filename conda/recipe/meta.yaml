@@ -26,9 +26,8 @@ requirements:
 
 test:
   commands:
-    - test -d ${PREFIX}/include/splinart  # [unix]
-    - test -f ${PREFIX}/include/ssplinart/shapes.hpp  # [unix]
-    - if not exist %LIBRARY_PREFIX%\include\samurai\shapes.hpp (exit 1)  # [win]
+    - test -d ${PREFIX}/bin/splinart-cpp  # [unix]
+    - if not exist %LIBRARY_PREFIX%\bin\splinart-cpp.exe (exit 1)  # [win]
 
 about:
   home: http://github.com/gouarin/splinart-cpp
