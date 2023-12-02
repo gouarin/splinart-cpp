@@ -1,3 +1,7 @@
 # pixi environments
 .pixi
 .build
+xml
+build
+html
+latex
