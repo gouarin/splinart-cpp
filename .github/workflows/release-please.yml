@@ -13,5 +13,3 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
-          versioning-strategy: always-bump-minor
-          bump-minor-pre-major: true
