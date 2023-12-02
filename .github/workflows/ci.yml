@@ -22,7 +22,7 @@ jobs:
                 pixi-version: v0.9.1
                 cache: true
 
-            - run: set PATH=%PATH%;D:\a\splinart-cpp\splinart-cpp\.pixi\env\Library; D:\a\splinart-cpp\splinart-cpp\.pixi\env\Library\cmake\x64\vc16\bin
+            - run: set PATH=%PATH%;"D:\a\splinart-cpp\splinart-cpp\.pixi\env\Library"
             - run: pixi run cmake -G Ninja -S . -B .build
 
             - run: pixi run ninja -C .build
