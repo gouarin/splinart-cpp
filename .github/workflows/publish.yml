@@ -20,7 +20,7 @@ jobs:
 
             - name: Build the recipe
               shell: bash -l {0}
-              run: conda build conda/recipes
+              run: conda build conda/recipe
 
             # - name: upload on conda
             #   shell: bash -l {0}
