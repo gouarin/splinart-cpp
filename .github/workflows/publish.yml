@@ -1,0 +1,26 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+    upload_on_conda:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+
+            - uses: mamba-org/setup-micromamba@v1
+              with:
+                environment-name: build-env
+                create-args: >-
+                  conda-build
+                  anaconda-client
+
+            - name: Build the recipe
+              shell: bash -l {0}
+              run: conda build conda/recipe
+
+            # - name: upload on conda
+            #   shell: bash -l {0}
+            #   run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
