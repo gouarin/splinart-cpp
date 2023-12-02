@@ -23,5 +23,5 @@ jobs:
                 cache: true
 
             - if: runner.os == 'Windows'
-              run: pixi add --platform win-64 vc
+              run: pixi add --platform win-64 vc cxx-compiler c-compiler
             - run: pixi run build
