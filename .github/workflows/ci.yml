@@ -5,60 +5,60 @@ on:
     pull_request:
 
 jobs:
-    # tests:
-    #     runs-on: ${{ matrix.os }}
-    #     strategy:
-    #       fail-fast: false
-    #       matrix:
-    #         os:
-    #           - windows-2022
-    #           - ubuntu-22.04
-    #           - macos-12
-    #     steps:
-    #         - uses: actions/checkout@v3
-
-    #         - uses: prefix-dev/setup-pixi@v0.4.1
-    #           with:
-    #             pixi-version: v0.9.1
-    #             cache: true
-
-    #         - if: runner.os == 'Windows'
-    #           run: pixi add --platform win-64 vc cxx-compiler c-compiler
-    #         - run: pixi run build
-
-
-    win-mamba:
-        runs-on: windows-2022
+    tests:
+        runs-on: ${{ matrix.os }}
+        strategy:
+          fail-fast: false
+          matrix:
+            os:
+              - windows-2022
+            #   - ubuntu-22.04
+            #   - macos-12
         steps:
             - uses: actions/checkout@v3
-            - name: Mamba and splinart env installation
-              uses: mamba-org/setup-micromamba@v1
+
+            - uses: prefix-dev/setup-pixi@v0.4.1
               with:
-                environment-file: conda/environment.yml
-                environment-name: splinart-env
-                cache-environment: true
+                pixi-version: v0.9.1
+                cache: true
 
-            - name: micromamba informations
-              shell: bash -l {0}
-              run: |
-                micromamba info
-                micromamba list
+            - run: pixi run cmake -G Ninja -S . -B .build
+            - run: pixi run ninja -C .build
 
-            - name: Configure
-              shell: bash -l {0}
-              run: |
-                cmake \
-                    . \
-                    -Bbuild \
-                    -G Ninja \
-                    -DCMAKE_BUILD_TYPE=Release
 
-            - name: Build
-              shell: bash -l {0}
-              run: |
-                cmake --build ./build --config Release
+    # win-mamba:
+    #     runs-on: windows-2022
 
-            # - name: Windows test
-            #   shell: bash -l {0}
-            #   run: |
-            #     ./build/tests/Release/test_splinart
+    #     steps:
+    #         - uses: actions/checkout@v3
+    #         - name: Mamba and splinart env installation
+    #           uses: mamba-org/setup-micromamba@v1
+    #           with:
+    #             environment-file: conda/environment.yml
+    #             environment-name: splinart-env
+    #             cache-environment: true
+
+    #         - name: micromamba informations
+    #           shell: bash -l {0}
+    #           run: |
+    #             micromamba info
+    #             micromamba list
+
+    #         - name: Configure
+    #           shell: bash -l {0}
+    #           run: |
+    #             cmake \
+    #                 . \
+    #                 -Bbuild \
+    #                 -G "Visual Studio 17 2022" \
+    #                 -DCMAKE_BUILD_TYPE=Release
+
+    #         - name: Build
+    #           shell: bash -l {0}
+    #           run: |
+    #             cmake --build ./build --config Release
+
+    #         # - name: Windows test
+    #         #   shell: bash -l {0}
+    #         #   run: |
+    #         #     ./build/tests/Release/test_splinart
