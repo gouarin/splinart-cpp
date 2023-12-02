@@ -19,6 +19,11 @@ target_include_directories(
 target_link_libraries(splinart xtensor opencv_core opencv_highgui)
 
 add_executable(splinart-cpp src/command_line.cpp)
+
+if(MSVC)
+    target_compile_options(splinart-cpp PUBLIC /MP /bigobj)
+endif()
+
 target_link_libraries(splinart-cpp splinart CLI11::CLI11)
 
 if (BUILD_EXAMPLES)
