@@ -22,4 +22,6 @@ jobs:
                 pixi-version: v0.9.1
                 cache: true
 
+            - if: runner.os == 'Windows'
+              run: pixi run cl.exe --version
             - run: pixi run build
