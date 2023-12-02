@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.26)
 project(splinart)
 
+set(CMAKE_CXX_STANDARD 17)
+
 option(BUILD_EXAMPLES "Build the examples of splinart" OFF)
 option(BUILD_TESTS "Build the tests of splinart" OFF)
 
