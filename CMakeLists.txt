@@ -18,7 +18,7 @@ target_include_directories(
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(splinart xtensor LINK_PRIVATE ${OpenCV_LIBS})
+target_link_libraries(splinart xtensor ${OpenCV_LIBS})
 
 add_executable(splinart-cpp src/command_line.cpp)
 
@@ -26,7 +26,7 @@ if(MSVC)
     target_compile_options(splinart-cpp PUBLIC /MP /bigobj)
 endif()
 
-target_link_libraries(splinart-cpp splinart CLI11::CLI11 LINK_PRIVATE ${OpenCV_LIBS})
+target_link_libraries(splinart-cpp splinart CLI11::CLI11 ${OpenCV_LIBS})
 
 if (BUILD_EXAMPLES)
     add_subdirectory(examples)
