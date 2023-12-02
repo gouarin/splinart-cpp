@@ -8,7 +8,8 @@ option(BUILD_TESTS "Build the tests of splinart" OFF)
 
 find_package(xtensor)
 find_package(CLI11)
-find_package(OpenCV REQUIRED COMPONENTS core highgui)
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 add_library(splinart src/shapes.cpp)
 target_include_directories(
@@ -16,7 +17,7 @@ target_include_directories(
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(splinart xtensor opencv_core opencv_highgui)
+target_link_libraries(splinart xtensor ${OpenCV_LIBS})
 
 add_executable(splinart-cpp src/command_line.cpp)
 
