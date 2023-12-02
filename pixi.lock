@@ -3571,6 +3571,93 @@ package:
   size: 1932223
   timestamp: 1699936472411
 - platform: linux-64
+  name: gtest
+  version: 1.14.0
+  category: main
+  manager: conda
+  dependencies:
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  url: https://conda.anaconda.org/conda-forge/linux-64/gtest-1.14.0-h00ab1b0_1.conda
+  hash:
+    md5: d362a81b815334cc921b9362782881f3
+    sha256: 1d9cdafcbf43ece349311835e48a17d7835d7d0a7fe9d5d5e7b3d8d17e38ffb1
+  build: h00ab1b0_1
+  arch: x86_64
+  subdir: linux-64
+  build_number: 1
+  constrains:
+  - gmock 1.14.0
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 404694
+  timestamp: 1691710003375
+- platform: osx-64
+  name: gtest
+  version: 1.14.0
+  category: main
+  manager: conda
+  dependencies:
+  - libcxx >=15.0.7
+  url: https://conda.anaconda.org/conda-forge/osx-64/gtest-1.14.0-h1c7c39f_1.conda
+  hash:
+    md5: 5730a7c4dcb497fddadcad282567d604
+    sha256: a139903c2283de52b4501b90a9518a31794144c887b73d0c22569d83d5a2ac67
+  build: h1c7c39f_1
+  arch: x86_64
+  subdir: osx-64
+  build_number: 1
+  constrains:
+  - gmock 1.14.0
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 384367
+  timestamp: 1691710345267
+- platform: osx-arm64
+  name: gtest
+  version: 1.14.0
+  category: main
+  manager: conda
+  dependencies:
+  - libcxx >=15.0.7
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/gtest-1.14.0-h1995070_1.conda
+  hash:
+    md5: 06fcdee735ef3e60e0d53c4dccfef5ff
+    sha256: 966fc047532a63951e2253afe5806af9a6182d5ef596612a503983ccf40f860e
+  build: h1995070_1
+  arch: aarch64
+  subdir: osx-arm64
+  build_number: 1
+  constrains:
+  - gmock 1.14.0
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 378251
+  timestamp: 1691710275827
+- platform: win-64
+  name: gtest
+  version: 1.14.0
+  category: main
+  manager: conda
+  dependencies:
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  url: https://conda.anaconda.org/conda-forge/win-64/gtest-1.14.0-h91493d7_1.conda
+  hash:
+    md5: 521bc74750a6f3bc87e0fc013f4569ef
+    sha256: 67e4bf66e22ace08af475ba0ced021210d54f8130be0b528fdec7961a9fd89ab
+  build: h91493d7_1
+  arch: x86_64
+  subdir: win-64
+  build_number: 1
+  constrains:
+  - gmock 1.14.0
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 491667
+  timestamp: 1691710467726
+- platform: linux-64
   name: gxx
   version: 12.3.0
   category: main
