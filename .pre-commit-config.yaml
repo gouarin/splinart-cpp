@@ -8,6 +8,7 @@ repos:
       - id: trailing-whitespace
       - id: check-merge-conflict
       - id: check-yaml
+        exclude: conda/recipe/meta.yaml
       - id: check-json
       - id: no-commit-to-branch
       - id: mixed-line-ending
