@@ -11,6 +11,14 @@ using namespace xt::placeholders;
 
 namespace splinart
 {
+    /// Return the second derivative of a cubic spline.
+    ///
+    /// @param xs The x coordinate of the cubic spline.
+    ///
+    /// @param ys The y coordinate of the cubic spline.
+    ///
+    /// @return The second derivative of the cubic spline.
+    ///
     inline auto spline(const xt::xtensor<double, 1>& xs, const xt::xtensor<double, 2>& ys)
     {
         auto n   = xs.shape()[0];
@@ -40,6 +48,18 @@ namespace splinart
         return y2s;
     }
 
+    /// Evaluate a sample on a cubic spline.
+    ///
+    /// @param xs The x coordinates of the cubic spline.
+    ///
+    /// @param ys The y coordinates of the cubic spline.
+    ///
+    /// @param y2s The second derivative of the cubic spline.
+    ///
+    /// @param x The sample where to evaluate the cubic spline.
+    ///
+    /// @param y The output coordinates of the sample.
+    ///
     inline void splint(const xt::xtensor<double, 1>& xs,
                        const xt::xtensor<double, 2>& ys,
                        const xt::xtensor<double, 2>& y2s,

@@ -9,6 +9,15 @@
 
 namespace splinart
 {
+
+    /// Add pixels on the image.
+    ///
+    /// @param img The image where we add pixels.
+    ///
+    /// @param spline The coordinates of the pixels to add.
+    ///
+    /// @param color Define the RGBA color of the pixels.
+    ///
     inline void draw_pixel(xt::xtensor<double, 3>& img, const xt::xtensor<double, 2>& spline, xt::xtensor_fixed<double, xt::xshape<4>> color)
     {
         std::size_t width  = img.shape(0);
@@ -34,6 +43,21 @@ namespace splinart
         }
     }
 
+    /// Update the path of the spline.
+    ///
+    /// We move each point of the path by a random vector
+    /// defined inside a circle where
+    ///
+    /// - the center is the point of the path
+    /// - the radius is a random number between [-1, 1]
+    ///
+    /// @param path The coordinates of the cubic spline.
+    ///
+    /// @param periodic If True, the first and the last points of the
+    ///                 path are the same (the default value is False).
+    ///
+    /// @param scale_value Rescale the random radius (default value is 0.00001).
+    ///
     inline void update_path(xt::xtensor<double, 2>& path, double scale_value = 0.00001, bool periodic = false)
     {
         auto n      = path.shape(0);
@@ -55,6 +79,21 @@ namespace splinart
         }
     }
 
+    /// Update the image using a cubic spline on a shape.
+    ///
+    /// @param img_size The size of the squared output image.
+    ///
+    /// @param circles The list of circles to plot on th image.
+    ///
+    /// @param rep Number of iterations (default is 300).
+    ///
+    /// @param periodic Define if the first and last points of the path must be equal
+    ///                 (default is True).
+    ///
+    /// @param scale_color Scale the given color (default is 0.005).
+    ///
+    /// @param scale_value Rescale the random radius (default value is 0.00001).
+    ///
     inline auto build_img(const std::array<std::size_t, 2>& img_size,
                           std::vector<Circle>& circles,
                           std::size_t rep    = 300,
