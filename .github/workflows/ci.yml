@@ -22,10 +22,9 @@ jobs:
                 pixi-version: v0.9.1
                 cache: true
 
-            - run: pixi run set PATH=%PATH%;"D:\a\splinart-cpp\splinart-cpp\.pixi\env\Library\cmake\x64\vc16\bin"
-            - run: pixi run cmake -G Ninja -S . -B .build
+            - run: pixi run cmake -G "Visual Studio 17 2022" -S . -B .build
 
-            - run: pixi run ninja -C .build
+            - run: pixi run cmake --build .build
 
 
     # win-mamba:
