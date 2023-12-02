@@ -22,7 +22,9 @@ jobs:
                 pixi-version: v0.9.1
                 cache: true
 
+            - run: set PATH=%PATH%;.pixi\env\Library
             - run: pixi run cmake -G Ninja -S . -B .build -DDEPENDENCY_SEARCH_PREFIX=".pixi\env\Library"
+
             - run: pixi run ninja -C .build
 
 
