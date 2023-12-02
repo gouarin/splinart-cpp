@@ -16,12 +16,12 @@ on:
     workflow_dispatch:
 
 
-  # Allow one concurrent deployment
-  concurrency:
-    group: "pages"
-    cancel-in-progress: true
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
-  jobs:
+jobs:
     build:
       # Don't run on forks
       if: github.repository == 'gouarin/splinart-cpp'
