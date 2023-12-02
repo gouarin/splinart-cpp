@@ -11,9 +11,8 @@ jobs:
           fail-fast: false
           matrix:
             os:
-              - windows-2022
-            #   - ubuntu-22.04
-            #   - macos-12
+              - ubuntu-22.04
+              - macos-12
         steps:
             - uses: actions/checkout@v3
 
@@ -22,44 +21,5 @@ jobs:
                 pixi-version: v0.9.1
                 cache: true
 
-            - run: pixi run cmake -G Ninja -S . -B .build
+            - run: pixi run test
 
-            - run: pixi run ninja -v -C .build
-
-
-    # win-mamba:
-    #     runs-on: windows-2022
-
-    #     steps:
-    #         - uses: actions/checkout@v3
-    #         - name: Mamba and splinart env installation
-    #           uses: mamba-org/setup-micromamba@v1
-    #           with:
-    #             environment-file: conda/environment.yml
-    #             environment-name: splinart-env
-    #             cache-environment: true
-
-    #         - name: micromamba informations
-    #           shell: bash -l {0}
-    #           run: |
-    #             micromamba info
-    #             micromamba list
-
-    #         - name: Configure
-    #           shell: bash -l {0}
-    #           run: |
-    #             cmake \
-    #                 . \
-    #                 -Bbuild \
-    #                 -G "Visual Studio 17 2022" \
-    #                 -DCMAKE_BUILD_TYPE=Release
-
-    #         - name: Build
-    #           shell: bash -l {0}
-    #           run: |
-    #             cmake --build ./build --config Release
-
-    #         # - name: Windows test
-    #         #   shell: bash -l {0}
-    #         #   run: |
-    #         #     ./build/tests/Release/test_splinart
