@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = '0.2.0' %}
 
 package:
   name: splinart-cpp
@@ -21,12 +21,11 @@ requirements:
     - opencv
     - cli11
   run:
-    - opencv
-    - cli11
+    - libopencv
 
 test:
   commands:
-    - test -d ${PREFIX}/bin/splinart-cpp  # [unix]
+    - test -f ${PREFIX}/bin/splinart-cpp  # [unix]
     - if not exist %LIBRARY_PREFIX%\bin\splinart-cpp.exe (exit 1)  # [win]
 
 about:

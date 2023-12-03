@@ -1,12 +1,19 @@
 name: publish
 
-on:
-  release:
-    types: [published]
+on: pull_request
+#   release:
+#     types: [published]
 
 jobs:
     upload_on_conda:
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os:
+                    - ubuntu-latest
+                    - macos-latest
+                    # - windows-latest
         steps:
             - uses: actions/checkout@v1
 
@@ -21,6 +28,17 @@ jobs:
               shell: bash -l {0}
               run: conda build conda/recipe
 
-            # - name: upload on conda
+            - name: upload on conda for linux
+              if: runner.os == 'ubuntu'
+              shell: bash -l {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+
+            - name: upload on conda for macos
+              if: runner.os == 'macos'
+              shell: bash -l {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+
+            # - name: upload on conda for windows
+            #   if: runner.os == 'windows'
             #   shell: bash -l {0}
-            #   run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+            #   run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
