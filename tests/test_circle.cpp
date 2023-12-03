@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright 2023 SPLINART TEAM. All rights reserved.
+
 #include <gtest/gtest.h>
 #include <splinart/shapes.hpp>
 #include <xtensor/xio.hpp>

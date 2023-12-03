@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright 2023 SPLINART TEAM. All rights reserved.
+
 #pragma once
 
 #include <array>
@@ -16,9 +19,3 @@ namespace splinart
         xt::xtensor_fixed<double, xt::xshape<4>> color{0.61960784313725492, 0.41568627450980394, 0, 1.0}; //!< The color of the circle
     };
 }
-
-// auto line(double beg, double end, double ypos=0.5, std::size_t npoints=50):
-
-//     x = np.linspace(begin, end, npoints)
-//     y = ypos * np.ones(npoints)
-//     return np.c_[x, y]
