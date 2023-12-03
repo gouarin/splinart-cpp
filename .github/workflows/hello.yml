@@ -1,6 +1,6 @@
 name: "Print hello"
 
-on: workflow_dispatch
+on: pull_request
 
 jobs:
     print-hello:
