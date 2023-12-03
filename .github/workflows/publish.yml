@@ -8,6 +8,7 @@ jobs:
     upload_on_conda:
         runs-on: ${{ matrix.os }}
         strategy:
+            fail-fast: false
             matrix:
                 os:
                     - ubuntu-latest
@@ -27,6 +28,17 @@ jobs:
               shell: bash -l {0}
               run: conda build conda/recipe
 
-            - name: upload on conda
+            - name: upload on conda for linux
+              if: runner.os == 'ubuntu'
               shell: bash -l {0}
               run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+
+            - name: upload on conda for macos
+              if: runner.os == 'macos'
+              shell: bash -l {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+
+            - name: upload on conda for windows
+              if: runner.os == 'windows'
+              shell: bash -l {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
