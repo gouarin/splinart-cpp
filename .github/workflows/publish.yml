@@ -12,7 +12,7 @@ jobs:
                 os:
                     - ubuntu-latest
                     - macos-latest
-                    - macos-latest-xlarge
+                    - macos-latest-large
         steps:
             - uses: actions/checkout@v1
 
