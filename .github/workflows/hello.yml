@@ -4,6 +4,6 @@ on: pull_request
 
 jobs:
     print-hello:
-        runs-on: ubuntu-latest
+        runs-on: macos-13-arm64
         steps:
             - run: echo "Hello !!!"
