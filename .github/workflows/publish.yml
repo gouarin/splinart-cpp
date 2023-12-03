@@ -6,7 +6,13 @@ on: pull_request
 
 jobs:
     upload_on_conda:
-        runs-on: [ubuntu-latest, macos-latest, macos-latest-xlarge]
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os:
+                    - ubuntu-latest
+                    - macos-latest
+                    - macos-latest-xlarge
         steps:
             - uses: actions/checkout@v1
 
