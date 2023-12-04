@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/gouarin/splinart-cpp/compare/v0.2.0...v0.2.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* add BSD license ([#22](https://github.com/gouarin/splinart-cpp/issues/22)) ([9490221](https://github.com/gouarin/splinart-cpp/commit/9490221dd468871bebbc5bf447139de43e764813))
+
 ## [0.2.0](https://github.com/gouarin/splinart-cpp/compare/v0.1.0...v0.2.0) (2023-12-02)
 
 
