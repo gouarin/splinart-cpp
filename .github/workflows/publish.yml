@@ -1,11 +1,9 @@
 name: publish
 
 on:
-  release:
-    types:
-      - published
-      - released
-
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
     upload_on_conda:
