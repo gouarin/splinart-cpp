@@ -1,9 +1,9 @@
 name: publish
 
 on:
-  workflow_dispatch:
   release:
-    types: [published]
+    types: 
+      - published
 
 jobs:
     upload_on_conda:
