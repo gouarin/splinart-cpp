@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/gouarin/splinart-cpp/compare/v0.2.3...v0.2.4) (2023-12-05)
+
+
+### Bug Fixes
+
+* Update publish.yml ([#29](https://github.com/gouarin/splinart-cpp/issues/29)) ([5ba420d](https://github.com/gouarin/splinart-cpp/commit/5ba420d71fd3ed8b1235925c87397ae8b79272c7))
+
 ## [0.2.3](https://github.com/gouarin/splinart-cpp/compare/v0.2.2...v0.2.3) (2023-12-05)
 
 
