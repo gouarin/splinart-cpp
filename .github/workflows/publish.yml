@@ -2,8 +2,9 @@ name: publish
 
 on:
   release:
-    types: 
+    types:
       - published
+
 
 jobs:
     upload_on_conda:
