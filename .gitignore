@@ -6,3 +6,4 @@ build
 html
 latex
 .cache
+.DS_Store
