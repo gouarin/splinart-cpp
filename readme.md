@@ -28,8 +28,8 @@
 <div align="center">
   <a href="https://github.com/gouarin/splinart-cpp">
     <picture>
-        <source media="(prefers-color-scheme: dark)" height="200" src="./doc/source/logo/Color logo - no background.png">
-        <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" height=200 src="./doc/source/logo/White logo - no background.png">
+        <source media="(prefers-color-scheme: dark)" height="200" srcset="./doc/source/logo/dark_logo.png">
+        <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" height=200 src="./doc/source/logo/light_logo.png">
     </picture>
   </a>
 
