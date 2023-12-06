@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/gouarin/splinart-cpp/compare/v0.3.6...v0.4.0) (2023-12-06)
+
+
+### Features
+
+* use pixi to publish ([#50](https://github.com/gouarin/splinart-cpp/issues/50)) ([1b2c8f7](https://github.com/gouarin/splinart-cpp/commit/1b2c8f72e4bf3f23d0ff0f7414b80f25b3b9fbb6))
+
 ## [0.3.6](https://github.com/gouarin/splinart-cpp/compare/v0.3.5...v0.3.6) (2023-12-06)
 
 
