@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/gouarin/splinart-cpp/compare/v0.3.3...v0.3.4) (2023-12-06)
+
+
+### Bug Fixes
+
+* conda recipe ([#44](https://github.com/gouarin/splinart-cpp/issues/44)) ([8c68e2f](https://github.com/gouarin/splinart-cpp/commit/8c68e2fdcec7ea05fb39ecd7e5032c006cc9b30a))
+
 ## [0.3.3](https://github.com/gouarin/splinart-cpp/compare/v0.3.2...v0.3.3) (2023-12-06)
 
 
