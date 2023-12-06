@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/gouarin/splinart-cpp/compare/v0.2.5...v0.3.0) (2023-12-06)
+
+
+### Features
+
+* add a new readme ([#34](https://github.com/gouarin/splinart-cpp/issues/34)) ([93a22da](https://github.com/gouarin/splinart-cpp/commit/93a22da4f116bab59e1bc9d52c0d3f9d77d585dd))
+
+
+### Bug Fixes
+
+* fix license ([#35](https://github.com/gouarin/splinart-cpp/issues/35)) ([f410c14](https://github.com/gouarin/splinart-cpp/commit/f410c1472148e92c50d0e06ea50a424609780848))
+* publish ([#36](https://github.com/gouarin/splinart-cpp/issues/36)) ([ff2e4cd](https://github.com/gouarin/splinart-cpp/commit/ff2e4cd173619b3e1fef7955ecd808684a5aaf3f))
+
 ## [0.2.5](https://github.com/gouarin/splinart-cpp/compare/v0.2.4...v0.2.5) (2023-12-05)
 
 
