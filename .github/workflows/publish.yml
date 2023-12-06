@@ -1,8 +1,6 @@
 
 on:
   workflow_dispatch:
-  release:
-    types: published
 
 jobs:
     upload_on_conda:
