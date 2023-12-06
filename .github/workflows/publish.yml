@@ -1,6 +1,7 @@
 name: Publish on conda
 
 on:
+  pull_request:
   release:
     types: published
 
@@ -25,10 +26,16 @@ jobs:
             - name: Install conda-build and anaconda-client
               run: pixi add conda-build anaconda-client
 
+            - name: Set version
+              run: |
+                VER=$(cat version.txt)
+                echo "VERSION=$VER" >> $GITHUB_ENV
+
             - name: Build the recipe
               shell: pixi run bash {0}
               run: conda build conda/recipe
 
             - name: upload on conda
+              if: github.event_name == 'release'
               shell: pixi run bash {0}
               run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.tar.bz2

@@ -1,4 +1,4 @@
-{% set version = environ.get('GITHUB_REF', '').split('/')[-1][1:] %}
+{% set version = environ.get(VERSION', '') %}
 
 package:
   name: splinart-cpp
