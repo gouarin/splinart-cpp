@@ -9,7 +9,9 @@
 project = 'splinart'
 copyright = '2023, Loic Gouarin'
 author = 'Loic Gouarin'
-release = '0.1.0'
+
+import json
+release = json.load(open('../../.release-please-manifest.json'))['.']
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
