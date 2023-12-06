@@ -18,10 +18,14 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+<div align="center">
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+
+</div>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -201,11 +205,11 @@ Projects Link: [https://github.com/gouarin](https://github.com/gouarin)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/gouarin/splinart-cpp.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/gouarin/splinart-cpp?style=for-the-badge
 [contributors-url]: https://github.com/gouarin/splinart-cpp/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/gouarin/splinart-cpp.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/gouarin/splinart-cpp?style=for-the-badge
 [stars-url]: https://github.com/gouarin/splinart-cpp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/gouarin/splinart-cpp.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/gouarin/splinart-cpp?style=for-the-badge
 [issues-url]: https://github.com/gouarin/splinart-cpp/issues
-[license-shield]: https://img.shields.io/github/license/gouarin/splinart-cpp.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/gouarin/splinart-cpp?style=for-the-badge
 [license-url]: https://github.com/gouarin/splinart-cpp/blob/main/LICENSE
