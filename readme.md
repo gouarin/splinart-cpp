@@ -208,5 +208,4 @@ Projects Link: [https://github.com/gouarin](https://github.com/gouarin)
 [issues-shield]: https://img.shields.io/github/issues/gouarin/splinart-cpp.svg?style=for-the-badge
 [issues-url]: https://github.com/gouarin/splinart-cpp/issues
 [license-shield]: https://img.shields.io/github/license/gouarin/splinart-cpp.svg?style=for-the-badge
-[license-url]: https://github.com/gouarin/splinart-cpp/blob/readme/LICENSE
-[product-screenshot]: doc/images/splinart.png
+[license-url]: https://github.com/gouarin/splinart-cpp/blob/main/LICENSE
