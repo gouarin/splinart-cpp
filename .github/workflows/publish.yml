@@ -34,7 +34,7 @@ jobs:
 
             - name: Build the recipe
               shell: pixi run bash {0}
-              run: conda build conda/recipe
+              run: conda build -c conda-forge conda/recipe
 
             - name: upload on conda
               if: github.event_name == 'release'
