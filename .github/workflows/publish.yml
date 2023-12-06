@@ -29,12 +29,12 @@ jobs:
               run: conda build conda/recipe
 
             - name: upload on conda for linux
-              if: runner.os == 'ubuntu'
+              if: runner.os == 'ubuntu-latest'
               shell: bash -l {0}
               run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
 
             - name: upload on conda for macos
-              if: runner.os == 'macos'
+              if: runner.os == 'macos-latest'
               shell: bash -l {0}
               run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
 
