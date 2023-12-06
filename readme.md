@@ -28,7 +28,7 @@
 <div align="center">
   <a href="https://github.com/gouarin/splinart-cpp">
     <picture>
-        <source media="(prefers-color-scheme: dark)" height="200" srcset="./doc/source/logo/Color logo - no background.png">
+        <source media="(prefers-color-scheme: dark)" height="200" src="./doc/source/logo/Color logo - no background.png">
         <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" height=200 src="./doc/source/logo/White logo - no background.png">
     </picture>
   </a>
@@ -74,10 +74,6 @@ A project to illustrate the use of development tools and their automation with G
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<div align="center">
-  <img src="./doc/source/images/splinart.png" alt="Screenshot">
-</div>
-
 The development of open-source software for numerical simulation is becoming an increasingly important part of the research process. It enables numerical methods to be validated, new algorithms to be developed and methods to be appropriated and enriched by anyone. Opening up our research codes is also part of the open science approach, and it's not a question of "just" putting an archive with the sources on a web page.
 
 The philosophy and structure of a piece of software emanate from its precursors and evolve as different contributions are made. However, to ensure that this architecture does not collapse at the slightest change, a framework is necessary. Setting up such a framework is a constraint. It's a question of supporting contributors in these new practices and finding the compromise between a restrictive framework and giving free rein to creativity.
@@ -87,6 +83,14 @@ During the development process, many tasks are repetitive and can be the source 
 This directory is the end result of a workshop describing each of the tools that can greatly facilitate the development process and interaction with all the players involved in an open-source project. It also describes a development framework that is validated using GitHub Actions.
 
 The workshop is here: https://github.com/gouarin/dev_env_and_automatisation
+
+We're going to use a ready-to-use C++ code that creates generative art from the equation of a circle and splines. This program displays renderings of the following type
+
+<div align="center">
+  <img src="./doc/source/images/splinart.png" alt="Screenshot">
+</div>
+
+The basic idea comes from [inconvergent](https://inconvergent.net/generative/sand-spline/) website.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
