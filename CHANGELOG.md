@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/gouarin/splinart-cpp/compare/v0.3.1...v0.3.2) (2023-12-06)
+
+
+### Bug Fixes
+
+* publish ([#40](https://github.com/gouarin/splinart-cpp/issues/40)) ([cfecef2](https://github.com/gouarin/splinart-cpp/commit/cfecef203f9356860a2bc19dc69a3fb5dda84239))
+
 ## [0.3.1](https://github.com/gouarin/splinart-cpp/compare/v0.3.0...v0.3.1) (2023-12-06)
 
 
