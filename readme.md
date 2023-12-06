@@ -184,7 +184,7 @@ Please read [our contribution guidelines](./CONTRIBUTING.md), and thank you for 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,5 +208,5 @@ Projects Link: [https://github.com/gouarin](https://github.com/gouarin)
 [issues-shield]: https://img.shields.io/github/issues/gouarin/splinart-cpp.svg?style=for-the-badge
 [issues-url]: https://github.com/gouarin/splinart-cpp/issues
 [license-shield]: https://img.shields.io/github/license/gouarin/splinart-cpp.svg?style=for-the-badge
-[license-url]: https://github.com/gouarin/splinart-cpp/blob/readme/LICENSE
+[license-url]: https://github.com/gouarin/splinart-cpp/blob/readme/LICENSE.txt
 [product-screenshot]: doc/images/splinart.png
