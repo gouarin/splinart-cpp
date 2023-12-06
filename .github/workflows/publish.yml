@@ -1,6 +1,8 @@
+name: Publish on conda
 
 on:
   workflow_dispatch:
+  pull_request:
   release:
     types: published
 
@@ -17,28 +19,24 @@ jobs:
         steps:
             - uses: actions/checkout@v1
 
-            - uses: mamba-org/setup-micromamba@v1
+            - uses: prefix-dev/setup-pixi@v0.4.1
               with:
-                environment-name: build-env
-                create-args: >-
-                  conda-build
-                  anaconda-client
+                pixi-version: v0.9.1
+                cache: true
+
+            - name: Install conda-build and anaconda-client
+              run: pixi add conda-build anaconda-client
+
+            - name: Set version
+              run: |
+                VER=$(cat version.txt)
+                echo "VERSION=$VER" >> $GITHUB_ENV
 
             - name: Build the recipe
-              shell: bash -l {0}
-              run: conda build conda/recipe
+              shell: pixi run bash {0}
+              run: conda build -c conda-forge conda/recipe
 
-            - name: upload on conda for linux
-              if: runner.os == 'Linux'
-              shell: bash -l {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /home/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
-
-            - name: upload on conda for macos
-              if: runner.os == 'macOS'
-              shell: bash -l {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
-
-            # - name: upload on conda for windows
-            #   if: runner.os == 'windows'
-            #   shell: bash -l {0}
-            #   run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /Users/runner/micromamba/envs/build-env/conda-bld/*/splinart-*.tar.bz2
+            - name: upload on conda
+              if: github.event_name == 'release'
+              shell: pixi run bash {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.tar.bz2
