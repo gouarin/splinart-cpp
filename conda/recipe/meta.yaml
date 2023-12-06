@@ -1,6 +1,8 @@
+{% set version = environ.get('GITHUB_REF', '').split('/')[-1][1:] %}
+
 package:
   name: splinart-cpp
-  version: {{ environ.get('GITHUB_REF', '').split('/')[-1][1:] }}
+  version: {{ version }}
 
 source:
   git_url: https://github.com/gouarin/splinart-cpp.git
