@@ -1,4 +1,4 @@
-{% set version = environ.get(VERSION', '') %}
+{% set version = environ.get('VERSION', '') %}
 
 package:
   name: splinart-cpp
