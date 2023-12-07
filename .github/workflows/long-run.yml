@@ -1,7 +1,6 @@
 name: "long check"
 
 on:
-  pull_request:
   schedule:
     - cron: "0 0 * * *"
 
