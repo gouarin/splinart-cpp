@@ -16,11 +16,11 @@ using namespace xt::placeholders;
 
 int main(int argc, char* argv[])
 {
-    std::size_t img_size   = 1000;
-    std::size_t nb_circles = 1;
-    std::size_t nb_samples = 10000;
-    bool has_random_color  = false;
-    xt::random::seed(time(NULL));
+    std::size_t img_size   = 1000;  // NOLINT
+    std::size_t nb_circles = 1;     // NOLINT
+    std::size_t nb_samples = 10000; // NOLINT
+    bool has_random_color  = false; // NOLINT
+    xt::random::seed(time(nullptr));
 
     CLI::App app{"splinart-cpp"};
     app.add_option("--img-size", img_size, "The size of the square image in pixels")->capture_default_str();

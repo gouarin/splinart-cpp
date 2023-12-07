@@ -13,7 +13,7 @@ namespace splinart
     ///
     /// @param img The image to draw
     ///
-    inline void imshow(xt::xtensor<double, 3>& img)
+    inline void imshow(const xt::xtensor<double, 3>& img)
     {
         auto width  = img.shape(0);
         auto height = img.shape(1);
