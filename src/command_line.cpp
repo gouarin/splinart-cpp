@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     std::vector<splinart::Circle> circles;
     for (std::size_t i = 0; i < nb_circles; i++)
     {
-        circles.push_back(splinart::Circle{xt::view(rand_centers, i), xt::view(rand_radius, i)[0], 75});
+        circles.emplace_back(splinart::Circle{xt::view(rand_centers, i), xt::view(rand_radius, i)[0], 75});
     }
 
     if (has_random_color)
