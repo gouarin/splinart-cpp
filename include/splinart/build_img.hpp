@@ -23,8 +23,8 @@ namespace splinart
     ///
     inline void draw_pixel(xt::xtensor<double, 3>& img, const xt::xtensor<double, 2>& spline, xt::xtensor_fixed<double, xt::xshape<4>> color)
     {
-        std::size_t width  = img.shape(0);
-        std::size_t height = img.shape(1);
+        const std::size_t width  = img.shape(0);
+        const std::size_t height = img.shape(1);
 
         auto xs      = xt::view(spline, xt::all(), 0);
         auto ys      = xt::view(spline, xt::all(), 1);
@@ -40,7 +40,7 @@ namespace splinart
             {
                 auto x              = newxs[i];
                 auto y              = newys[i];
-                double alpha        = 1 - color(3);
+                const double alpha  = 1 - color(3);
                 xt::view(img, x, y) = color + xt::view(img, x, y) * alpha;
             }
         }
@@ -71,7 +71,7 @@ namespace splinart
 
         auto phi = xt::random::rand<double>({n}) * 2 * pi;
 
-        std::array<std::size_t, 2> shape{n, 2};
+        const std::array<std::size_t, 2> shape{n, 2};
         xt::xtensor<double, 2> rnd  = xt::empty<double>(shape);
         xt::view(rnd, xt::all(), 0) = xt::cos(phi);
         xt::view(rnd, xt::all(), 1) = xt::sin(phi);
@@ -104,13 +104,13 @@ namespace splinart
                           double scale_color = 0.005,
                           double scale_value = 0.00001)
     {
-        std::array<std::size_t, 3> shape{img_size[0], img_size[1], 4};
+        const std::array<std::size_t, 3> shape{img_size[0], img_size[1], 4};
         xt::xtensor<double, 3> img = xt::ones<double>(shape);
 
         auto xs_func = []()
         {
-            std::size_t nsamples = 500;
-            double pi            = xt::numeric_constants<double>::PI;
+            const std::size_t nsamples = 500;
+            const double pi            = xt::numeric_constants<double>::PI;
             return xt::eval(xt::fmod(xt::random::rand<double>({1})[0] + xt::linspace<double>(0, 2 * pi, nsamples), 2 * pi));
         };
 
@@ -118,7 +118,7 @@ namespace splinart
 
         for (auto& circle : circles)
         {
-            std::array<std::size_t, 2> spline_shape{xspline.size(), 2};
+            const std::array<std::size_t, 2> spline_shape{xspline.size(), 2};
             xt::xtensor<double, 2> yspline = xt::zeros<double>(spline_shape);
             for (std::size_t r = 0; r < rep; ++r)
             {

@@ -17,7 +17,7 @@ namespace splinart
     {
         auto width  = img.shape(0);
         auto height = img.shape(1);
-        cv::Mat M(width, height, CV_64FC4, static_cast<void*>(img.data()));
+        cv::Mat M(width, height, CV_64FC4, static_cast<void*>(img.data())); // NOLINT
         cv::imshow("splinart", M);
         cv::waitKey(0);
     }

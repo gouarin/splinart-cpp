@@ -71,8 +71,8 @@ namespace splinart
     {
         for (std::size_t i = 0; i < x.size(); ++i)
         {
-            auto upper = std::upper_bound(xs.cbegin(), xs.cend(), x[i]);
-            auto khi   = upper != xs.end() ? std::distance(xs.begin(), upper) : xs.size();
+            const auto* const upper = std::upper_bound(xs.cbegin(), xs.cend(), x[i]);
+            auto khi                = upper != xs.end() ? std::distance(xs.begin(), upper) : xs.size();
             if (khi >= xs.size())
             {
                 khi = xs.size() - 1;
