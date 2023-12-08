@@ -46,11 +46,18 @@ jobs:
             #     unset PATH
             #     conda build -c conda-forge conda/recipe
 
+            - name: Mamba installation
+              uses: mamba-org/setup-micromamba@v1
+              with:
+                environment-name: build-env
+                create-args: >-
+                  conda-build
+                  anaconda-client
+                cache-environment: true
+
             - name: Build the recipe
               shell: bash -el {0}
-              run: |
-                  conda install conda-build
-                  conda build -c conda-forge conda/recipe
+              run: conda build -c conda-forge conda/recipe
 
             - name: upload on conda
               if: github.event_name == 'release'
