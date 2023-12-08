@@ -33,15 +33,11 @@ jobs:
                 VER=$(cat version.txt)
                 echo "VERSION=$VER" >> $GITHUB_ENV
 
-            - name: Reduce PATH
-              shell: cmd
-              run: |
-                CALL SET "PATH_NO_ROOT=%%PATH:%ROOT_PATH%;=%%"
-                IF NOT "%PATH_NO_ROOT%"=="%PATH%" SET "CONDA_DEFAULT_ENV=%ROOT_PATH%"
-
             - name: Build the recipe
               shell: pixi run bash {0}
-              run: conda build -c conda-forge conda/recipe
+              run: |
+                echo $PATH
+                conda build -c conda-forge conda/recipe
 
             # - name: Mamba installation
             #   uses: mamba-org/setup-micromamba@v1
