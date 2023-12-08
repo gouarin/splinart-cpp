@@ -60,10 +60,19 @@ jobs:
           cache: true
 
 
-
-      - shell: pixi run bash {0}
+      - name: Configure msvc compiler
+        if: runner.os == 'Windows'
+        shell: pixi run bash {0}
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+
+      - name: build splinart
+        shell: pixi run bash {0}
+        run: |
           cmake -G Ninja -S . -B .build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
           cmake --build .build --config Release
+
+      - name: Run tests
+        shell: pixi run bash {0}
+        run: |
           .build/tests/Release/test_splinart
