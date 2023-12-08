@@ -36,28 +36,8 @@ jobs:
             - name: Build the recipe
               shell: pixi run bash {0}
               run: |
-                set TMP_PATH=$PATH
-                set PATH=$TMP_PATH
+                ./conda/run_conda_forge_build_setup_win.bat
                 conda build -c conda-forge conda/recipe
-
-            # - name: Mamba installation
-            #   uses: mamba-org/setup-micromamba@v1
-            #   with:
-            #     environment-name: build-env
-            #     create-args: >-
-            #       conda-build
-            #       anaconda-client
-            #     cache-environment: true
-
-            # - name: Build the recipe
-            #   shell: cmd
-            #   run: |
-            #     call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
-
-            # - name: Build the recipe
-            #   shell: bash -el {0}
-            #   run: |
-            #     conda build -c conda-forge conda/recipe
 
             - name: upload on conda
               if: github.event_name == 'release'
