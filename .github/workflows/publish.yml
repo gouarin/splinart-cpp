@@ -33,9 +33,34 @@ jobs:
                 VER=$(cat version.txt)
                 echo "VERSION=$VER" >> $GITHUB_ENV
 
+            - name: Reduce PATH
+              shell: cmd
+              run: |
+                CALL SET ""PATH_NO_SCRIPTS=%%PATH:%SCRIPT_PATH%=%%""
+                IF "%PATH_NO_SCRIPTS%"=="%PATH%" SET "PATH=%PATH%;%SCRIPT_PATH%"
+
             - name: Build the recipe
               shell: pixi run bash {0}
               run: conda build -c conda-forge conda/recipe
+
+            # - name: Mamba installation
+            #   uses: mamba-org/setup-micromamba@v1
+            #   with:
+            #     environment-name: build-env
+            #     create-args: >-
+            #       conda-build
+            #       anaconda-client
+            #     cache-environment: true
+
+            # - name: Build the recipe
+            #   shell: cmd
+            #   run: |
+            #     call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+
+            # - name: Build the recipe
+            #   shell: bash -el {0}
+            #   run: |
+            #     conda build -c conda-forge conda/recipe
 
             - name: upload on conda
               if: github.event_name == 'release'
