@@ -60,8 +60,10 @@ jobs:
           cache: true
 
 
+
       - shell: pixi run bash {0}
         run: |
-          cmake -G "Visual Studio 17 2022" -S . -B .build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+          cmake -G Ninja -S . -B .build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
           cmake --build .build --config Release
           .build/tests/test_splinart
