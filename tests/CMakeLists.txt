@@ -1,4 +1,18 @@
-find_package(GTest)
+# find_package(GTest)
+include(FetchContent)
+FetchContent_Declare(googletest
+    GIT_REPOSITORY      https://github.com/google/googletest.git
+    GIT_TAG             release-1.10.0)
+FetchContent_GetProperties(googletest)
+if(NOT googletest_POPULATED)
+    FetchContent_Populate(googletest)
+    set(CMAKE_SUPPRESS_DEVELOPER_WARNINGS 1 CACHE BOOL "")
+    add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
+    unset(CMAKE_SUPPRESS_DEVELOPER_WARNINGS)
+endif()
+
+include_directories(${GTEST_INCLUDE_DIRS} SYSTEM)
+
 
 set(COMMON_BASE
     main.cpp
@@ -16,4 +30,4 @@ foreach(filename IN LISTS SPLINART_TESTS)
 endforeach()
 
 add_executable(test_splinart ${COMMON_BASE} ${SPLINART_TESTS})
-target_link_libraries(test_splinart PRIVATE splinart GTest::gtest_main GTest::gtest)
+target_link_libraries(test_splinart PRIVATE splinart gtest_main gtest)
