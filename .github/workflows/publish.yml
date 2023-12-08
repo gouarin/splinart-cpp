@@ -33,6 +33,11 @@ jobs:
                 VER=$(cat version.txt)
                 echo "VERSION=$VER" >> $GITHUB_ENV
 
+            - name: short path
+              shell: cmd
+              run: |
+                  CALL conda/recipe/short_path.bat
+
             - name: Build the recipe
               shell: pixi run bash {0}
               run: |
