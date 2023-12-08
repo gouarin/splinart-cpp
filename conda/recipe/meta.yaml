@@ -10,6 +10,8 @@ source:
 
 build:
   number: 0
+  scripts:
+      - COPY "%RECIPE_DIR%\\run_conda_forge_build_setup_win.bat" "%SCRIPTS%\\run_conda_forge_build_setup.bat"              # [win]
 
 requirements:
   build:
