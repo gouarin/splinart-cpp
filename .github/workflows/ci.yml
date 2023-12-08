@@ -59,16 +59,5 @@ jobs:
           pixi-version: v0.9.1
           cache: true
 
-      # - name: build splinart
-      #   shell: pixi run bash {0}
-      #   run: |
-      #     cmake -G Ninja -S . -B .build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
-      #     cmake --build .build --config Release
-
-      # - name: Run tests
-      #   shell: pixi run bash {0}
-      #   run: |
-      #     .build/tests/test_splinart
-
       - name: Run tests
         run: pixi run test
