@@ -28,6 +28,7 @@ jobs:
               run: pixi add conda-build anaconda-client
 
             - name: Set version
+              shell: pixi run bash {0}
               run: |
                 VER=$(cat version.txt)
                 echo "VERSION=$VER" >> $GITHUB_ENV
