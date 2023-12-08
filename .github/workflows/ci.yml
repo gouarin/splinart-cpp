@@ -50,6 +50,7 @@ jobs:
         os:
           - ubuntu-22.04
           - macos-12
+          - windows-latest
     steps:
       - uses: actions/checkout@v3
 
