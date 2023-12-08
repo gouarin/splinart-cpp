@@ -67,7 +67,6 @@ jobs:
       - name: build splinart
         shell: pixi run bash {0}
         run: |
-          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
           cmake -G Ninja -S . -B .build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
           cmake --build .build --config Release
 
