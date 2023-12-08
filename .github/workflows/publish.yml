@@ -47,9 +47,9 @@ jobs:
                 cache-environment: true
 
             - name: Build the recipe
-              shell: pwsh
+              shell: cmd
               run: |
-                "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+                call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
                 conda build -c conda-forge conda/recipe
 
             - name: upload on conda
