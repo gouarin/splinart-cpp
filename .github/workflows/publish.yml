@@ -48,7 +48,7 @@ jobs:
 
             - name: Build the recipe
               run: |
-                  mamba install conda-build
+                  conda install conda-build
                   conda build -c conda-forge conda/recipe
 
             - name: upload on conda
