@@ -10,7 +10,7 @@ platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 clean = { cmd = "ninja -C .build -t clean" }
 configure = { cmd = "cmake -G Ninja -S . -B .build" }
 configure_test = { cmd = "cmake -G Ninja -S . -B .build -DBUILD_TESTS=ON" }
-build_ninja = { cmd = "ninja -C .build" }
+build_ninja = { cmd = "cmake --build .build" }
 build = { depends_on = ["configure", "build_ninja"] }
 build_test = { depends_on = ["configure_test", "build_ninja"] }
 start = { cmd = ".build/splinart-cpp", depends_on = ["build"] }
