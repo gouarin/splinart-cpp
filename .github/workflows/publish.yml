@@ -33,6 +33,14 @@ jobs:
                 VER=$(cat version.txt)
                 echo "VERSION=$VER" >> $GITHUB_ENV
 
+            - name: pywinpath
+              if: runner.os == 'Windows'
+              shell: pixi run bash {0}
+              run: |
+                pixi add pip
+                pip install pywinpath
+                pywinpath
+
             - name: Build the recipe
               shell: pixi run bash {0}
               run: conda build -c conda-forge conda/recipe
