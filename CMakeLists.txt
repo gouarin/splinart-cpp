@@ -26,7 +26,7 @@ add_executable(splinart-cpp src/command_line.cpp)
 if(MSVC)
     target_compile_options(splinart-cpp PUBLIC /MP /bigobj)
 endif()
-
+message(STATUS  ${OpenCV_LIBS})
 target_link_libraries(splinart-cpp splinart CLI11::CLI11 ${OpenCV_LIBS})
 
 if (BUILD_EXAMPLES)
