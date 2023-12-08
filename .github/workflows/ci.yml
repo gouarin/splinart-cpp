@@ -74,4 +74,4 @@ jobs:
       - name: Run tests
         shell: pixi run bash {0}
         run: |
-          .build/tests/Release/test_splinart
+          .build/tests/test_splinart
