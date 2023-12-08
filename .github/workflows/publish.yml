@@ -47,6 +47,7 @@ jobs:
             #     conda build -c conda-forge conda/recipe
 
             - name: Build the recipe
+              shell: bash -el {0}
               run: |
                   conda install conda-build
                   conda build -c conda-forge conda/recipe
