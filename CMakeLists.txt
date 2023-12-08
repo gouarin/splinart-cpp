@@ -10,7 +10,7 @@ option(BUILD_TESTS "Build the tests of splinart" OFF)
 find_package(xtensor)
 find_package(CLI11)
 
-find_package(OpenCV REQUIRED COMPONENTS core imgproc highgui video)
+find_package(OpenCV REQUIRED COMPONENTS core highgui)
 
 add_library(splinart src/shapes.cpp)
 target_include_directories(
@@ -18,13 +18,10 @@ target_include_directories(
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(splinart xtensor opencv_core opencv_imgproc opencv_highgui opencv_video)
+target_link_libraries(splinart xtensor opencv_core opencv_highgui)
 
 add_executable(splinart-cpp src/command_line.cpp)
 
-if(MSVC)
-    target_compile_options(splinart-cpp PUBLIC /MP /bigobj)
-endif()
 target_link_libraries(splinart-cpp splinart CLI11::CLI11)
 
 if (BUILD_EXAMPLES)
