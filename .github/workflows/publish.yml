@@ -36,7 +36,8 @@ jobs:
             - name: Build the recipe
               shell: pixi run bash {0}
               run: |
-                echo $PATH
+                set TMP_PATH=$PATH
+                set PATH=$TMP_PATH
                 conda build -c conda-forge conda/recipe
 
             # - name: Mamba installation
