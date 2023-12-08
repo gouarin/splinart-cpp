@@ -31,4 +31,4 @@ foreach(filename IN LISTS SPLINART_TESTS)
 endforeach()
 
 add_executable(test_splinart ${COMMON_BASE} ${SPLINART_TESTS})
-target_link_libraries(test_splinart PRIVATE splinart gtest_main gtest)
+target_link_libraries(test_splinart PRIVATE splinart GTest::gtest_main GTest::gtest)
