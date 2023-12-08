@@ -50,6 +50,7 @@ jobs:
         os:
           - ubuntu-22.04
           - macos-12
+          - windows-2022
     steps:
       - uses: actions/checkout@v3
 
@@ -58,4 +59,5 @@ jobs:
           pixi-version: v0.9.1
           cache: true
 
-      - run: pixi run test
+      - name: Run tests
+        run: pixi run test
