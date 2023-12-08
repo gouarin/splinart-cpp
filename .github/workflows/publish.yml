@@ -43,8 +43,7 @@ jobs:
             - name: Build the recipe
               shell: pixi run bash {0}
               run: |
-                CALL SET ""PATH_NO_SCRIPTS=%%PATH:%SCRIPT_PATH%=%%""
-                IF "%PATH_NO_SCRIPTS%"=="%PATH%" SET "PATH=%PATH%;%SCRIPT_PATH%"
+                set PATH=%%
                 conda build -c conda-forge conda/recipe
 
             - name: upload on conda
