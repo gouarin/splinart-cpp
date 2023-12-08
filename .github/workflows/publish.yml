@@ -36,8 +36,8 @@ jobs:
             - name: Reduce PATH
               shell: cmd
               run: |
-                CALL SET ""PATH_NO_SCRIPTS=%%PATH:%SCRIPT_PATH%=%%""
-                IF "%PATH_NO_SCRIPTS%"=="%PATH%" SET "PATH=%PATH%;%SCRIPT_PATH%"
+                CALL SET "PATH_NO_ROOT=%%PATH:%ROOT_PATH%;=%%"
+                IF NOT "%PATH_NO_ROOT%"=="%PATH%" SET "CONDA_DEFAULT_ENV=%ROOT_PATH%"
 
             - name: Build the recipe
               shell: pixi run bash {0}
