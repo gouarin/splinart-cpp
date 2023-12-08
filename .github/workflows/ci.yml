@@ -71,5 +71,5 @@ jobs:
       #     .build/tests/test_splinart
 
       - name: Run tests
+        shell: pixi run bash {0}
         run: pixi run test
-          .build/tests/test_splinart
