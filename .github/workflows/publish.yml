@@ -3,7 +3,7 @@ name: Publish on conda
 on:
     workflow_dispatch:
     release:
-        types: published
+        types: [published]
 
 jobs:
     upload_on_conda:
@@ -13,7 +13,7 @@ jobs:
             matrix:
                 os:
                     - ubuntu-24.04
-                    - macos-latest
+                    - macos-13
                     # - windows-latest
         steps:
             - uses: actions/checkout@v1
