@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/gouarin/splinart-cpp/compare/v0.4.0...v0.4.1) (2025-01-27)
+
+
+### Bug Fixes
+
+* update dependencies and fix pixi ([#55](https://github.com/gouarin/splinart-cpp/issues/55)) ([e725a5f](https://github.com/gouarin/splinart-cpp/commit/e725a5ff95024aacbe25ab0d977fece2c703a769))
+
 ## [0.4.0](https://github.com/gouarin/splinart-cpp/compare/v0.3.6...v0.4.0) (2023-12-06)
 
 
