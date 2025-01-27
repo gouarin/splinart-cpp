@@ -6,7 +6,7 @@ on:
 
 jobs:
     check_new_commit:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         outputs:
             nb_commits: ${{ steps.new_commits.outputs.nb_commits }}
         steps:

@@ -18,7 +18,7 @@ jobs:
     build:
         # Don't run on forks
         if: github.repository == 'gouarin/splinart-cpp'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         steps:
             - uses: actions/checkout@v4
 
@@ -36,7 +36,7 @@ jobs:
                   path: "doc/build/html"
 
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         needs: build
         if: github.repository == 'gouarin/splinart-cpp' && github.ref == 'refs/heads/main'
         permissions:
