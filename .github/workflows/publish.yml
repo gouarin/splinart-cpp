@@ -12,10 +12,15 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os:
-                    # - ubuntu-24.04
-                    - macos-13
-                    # - windows-latest
+                include:
+                    - os: windows-latest
+                      CONFIG: win_64_.yaml
+                    - os: ubuntu-24.04
+                      CONFIG: linux_64_.yaml
+                    - os: macos-13
+                      CONFIG: osx_64_.yaml
+                    - os: macos-latest
+                      CONFIG: osx_arm64_.yaml
         steps:
             - uses: actions/checkout@v1
 
@@ -34,7 +39,9 @@ jobs:
 
             - name: Build the recipe
               shell: pixi run bash {0}
-              run: conda build -c conda-forge conda/recipe -m conda/ci_support/osx_64_.yaml --suppress-variables
+              run: |
+                  conda config --add channels conda-forge
+                  conda build conda/recipe -m conda/ci_support/${{ matrix.CONFIG }} --suppress-variables
 
             - name: upload on conda
               if: github.event_name == 'release'
