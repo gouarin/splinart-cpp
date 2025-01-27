@@ -32,7 +32,14 @@ jobs:
             - name: Install conda-build and anaconda-client
               run: pixi add conda-build anaconda-client
 
-            - name: Set version
+            - name: Set version (Windows)
+              if: runner.os == 'Windows'
+              run: |
+                  $VER = Get-Content version.txt
+                  echo "VERSION=$VER" >> $env:GITHUB_ENV
+
+            - name: Set version (Unix)
+              if: runner.os != 'Windows'
               run: |
                   VER=$(cat version.txt)
                   echo "VERSION=$VER" >> $GITHUB_ENV
