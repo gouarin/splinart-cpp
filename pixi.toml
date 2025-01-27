@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add a short description here"
 authors = ["Loic Gouarin <loic.gouarin@gmail.com>"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "osx-64", "osx-arm64"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 
 [tasks]
 clean = { cmd = "ninja -C .build -t clean" }
@@ -33,4 +33,3 @@ pydata-sphinx-theme = ">=0.16.1,<0.17"
 doxygen = ">=1.12.0,<2"
 breathe = ">=4.35.0,<5"
 myst-parser = ">=4.0.0,<5"
-cppcheck = ">=2.16.0,<3"
