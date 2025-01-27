@@ -2,6 +2,7 @@ name: Publish on conda
 
 on:
     workflow_dispatch:
+    pull_request:
     release:
         types: [published]
 
@@ -12,7 +13,7 @@ jobs:
             fail-fast: false
             matrix:
                 os:
-                    - ubuntu-24.04
+                    # - ubuntu-24.04
                     - macos-13
                     # - windows-latest
         steps:
@@ -33,7 +34,7 @@ jobs:
 
             - name: Build the recipe
               shell: pixi run bash {0}
-              run: conda build -c conda-forge conda/recipe
+              run: conda build -c conda-forge conda/recipe -m conda/ci_support/osx_64_.yaml --suppress-variables
 
             - name: upload on conda
               if: github.event_name == 'release'
