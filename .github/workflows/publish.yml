@@ -15,12 +15,12 @@ jobs:
                 include:
                     - os: windows-latest
                       CONFIG: win_64_.yaml
-                    - os: ubuntu-24.04
-                      CONFIG: linux_64_.yaml
-                    - os: macos-13
-                      CONFIG: osx_64_.yaml
-                    - os: macos-latest
-                      CONFIG: osx_arm64_.yaml
+                    # - os: ubuntu-24.04
+                    #   CONFIG: linux_64_.yaml
+                    # - os: macos-13
+                    #   CONFIG: osx_64_.yaml
+                    # - os: macos-latest
+                    #   CONFIG: osx_arm64_.yaml
         steps:
             - uses: actions/checkout@v1
 
