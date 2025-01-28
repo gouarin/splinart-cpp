@@ -3,6 +3,7 @@ name: Publish on conda
 on:
     release:
         types: [published]
+    workflow_dispatch:
 
 jobs:
     upload_on_conda:
