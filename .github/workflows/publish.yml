@@ -14,7 +14,7 @@ jobs:
             matrix:
                 include:
                     - os: windows-latest
-                      CONFIG: win_64_.yaml
+                      CONFIG_FILE: win_64_.yaml
                     # - os: ubuntu-24.04
                     #   CONFIG: linux_64_.yaml
                     # - os: macos-13
@@ -53,8 +53,8 @@ jobs:
               run: |
                   conda config --add channels conda-forge
                   ./ci_support/run_win_build.bat
-                  conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
 
+            # conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
             - name: upload on conda
               if: github.event_name == 'release'
               shell: pixi run bash {0}
