@@ -50,6 +50,8 @@ jobs:
             - name: Build the recipe
               shell: pixi run bash {0}
               working-directory: conda
+              env:
+                  CONFIG: ${{ CONFIG_FILE }}
               run: |
                   conda config --add channels conda-forge
                   ./ci_support/run_win_build.bat
