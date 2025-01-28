@@ -44,6 +44,9 @@ jobs:
                   VER=$(cat version.txt)
                   echo "VERSION=$VER" >> $GITHUB_ENV
 
+            - name: Setup tmate session
+              uses: mxschmitt/action-tmate@v3
+
             - name: Build the recipe
               shell: pixi run bash {0}
               run: |
