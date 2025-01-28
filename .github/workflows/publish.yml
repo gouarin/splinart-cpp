@@ -54,7 +54,7 @@ jobs:
                   CONFIG: ${{ matrix.CONFIG_FILE }}
               run: |
                   conda config --add channels conda-forge
-                  ./ci_support/run_win_build.bat
+                  ./.ci_support/run_win_build.bat
 
             # conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
             - name: upload on conda
