@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: BSD-3-Clause
-// Copyright 2023 SPLINART TEAM. All rights reserved.
+// Copyright 2023-2025 SPLINART TEAM. All rights reserved.
 
 #include <algorithm>
 #include <fstream>
