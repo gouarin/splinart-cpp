@@ -63,16 +63,16 @@ jobs:
               working-directory: conda
               run: |
                   conda config --add channels conda-forge
-                  conda build recipe -m .ci_support/${{ matrix.CONFIG }} --suppress-variables
+                  conda build recipe -m .ci_support/${{ matrix.CONFIG }} --suppress-variables --output-folder conda-bld
 
             - name: upload on conda
               if: runner.os != 'Windows'
               # if: github.event_name == 'release' && runner.os != 'Windows'
               shell: pixi run bash {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.conda
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force conda/conda-bld/splinart-*.conda
 
             - name: upload on conda
               # if: github.event_name == 'release' && runner.os == 'Windows'
               if: runner.os == 'Windows'
               shell: pixi run bash {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /bld/splinart-*.conda
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force conda/conda-bld/splinart-*.conda
