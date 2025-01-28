@@ -13,7 +13,7 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - os: windows-latest
+                    - os: windows-2022
                       CONFIG: win_64_.yaml
                     # - os: ubuntu-24.04
                     #   CONFIG: linux_64_.yaml
@@ -48,7 +48,6 @@ jobs:
               shell: pixi run bash {0}
               run: |
                   conda config --add channels conda-forge
-                  ./conda/ci_support/run_win_build.bat
                   conda build conda/recipe -m conda/ci_support/${{ matrix.CONFIG }} --suppress-variables
 
             - name: upload on conda
