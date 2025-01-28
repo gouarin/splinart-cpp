@@ -14,13 +14,13 @@ jobs:
             matrix:
                 include:
                     - os: windows-latest
-                      CONFIG_FILE: win_64_
-                    # - os: ubuntu-24.04
-                    #   CONFIG: linux_64_.yaml
-                    # - os: macos-13
-                    #   CONFIG: osx_64_.yaml
-                    # - os: macos-latest
-                    #   CONFIG: osx_arm64_.yaml
+                      CONFIG: win_64_
+                    - os: ubuntu-24.04
+                      CONFIG: linux_64_.yaml
+                    - os: macos-13
+                      CONFIG: osx_64_.yaml
+                    - os: macos-latest
+                      CONFIG: osx_arm64_.yaml
         steps:
             - uses: actions/checkout@v1
 
@@ -48,16 +48,30 @@ jobs:
             #   uses: mxschmitt/action-tmate@v3
 
             - name: Build the recipe
+              if: runner.os == 'Windows'
               shell: pixi run bash {0}
               working-directory: conda
               env:
-                  CONFIG: ${{ matrix.CONFIG_FILE }}
+                  CONFIG: ${{ matrix.CONFIG }}
               run: |
                   conda config --add channels conda-forge
                   ./.ci_support/run_win_build.bat
 
-            # conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
-            - name: upload on conda
-              if: github.event_name == 'release'
+            - name: Build the recipe
+              if: runner.os != 'Windows'
               shell: pixi run bash {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.tar.bz2
+              working-directory: conda
+              run: |
+                  conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
+
+            - name: upload on conda
+              if: github.event_name == 'release' && runner.os != 'Windows'
+              shell: pixi run bash {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.conda
+
+            - name: upload on conda
+              # if: github.event_name == 'release' && runner.os == 'Windows'
+              if: runner.os == 'Windows'
+              shell: pixi run bash {0}
+              # run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force /bld/splinart-*.conda
+              run: anaconda upload --force /bld/splinart-*.conda
