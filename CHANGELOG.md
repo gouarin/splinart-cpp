@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.2](https://github.com/gouarin/splinart-cpp/compare/v0.4.1...v0.4.2) (2025-01-28)
+
+
+### Bug Fixes
+
+* ci ([#59](https://github.com/gouarin/splinart-cpp/issues/59)) ([0259f28](https://github.com/gouarin/splinart-cpp/commit/0259f289c451696151272e94998d65cd28b3cccc))
+* update license ([#60](https://github.com/gouarin/splinart-cpp/issues/60)) ([610593e](https://github.com/gouarin/splinart-cpp/commit/610593efdae972c6c0f3b9cd40666d1585dbcb9e))
+
 ## [0.4.1](https://github.com/gouarin/splinart-cpp/compare/v0.4.0...v0.4.1) (2025-01-27)
 
 
