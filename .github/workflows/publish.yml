@@ -11,10 +11,15 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os:
-                    - ubuntu-24.04
-                    - macos-13
-                    # - windows-latest
+                include:
+                    - os: windows-latest
+                      CONFIG: win_64_
+                    - os: ubuntu-24.04
+                      CONFIG: linux_64_.yaml
+                    - os: macos-13
+                      CONFIG: osx_64_.yaml
+                    - os: macos-latest
+                      CONFIG: osx_arm64_.yaml
         steps:
             - uses: actions/checkout@v1
 
@@ -26,16 +31,47 @@ jobs:
             - name: Install conda-build and anaconda-client
               run: pixi add conda-build anaconda-client
 
-            - name: Set version
+            - name: Set version (Windows)
+              if: runner.os == 'Windows'
+              run: |
+                  $VER = Get-Content version.txt
+                  echo "VERSION=$VER" >> $env:GITHUB_ENV
+
+            - name: Set version (Unix)
+              if: runner.os != 'Windows'
               run: |
                   VER=$(cat version.txt)
                   echo "VERSION=$VER" >> $GITHUB_ENV
 
+            # - name: Setup tmate session
+            #   uses: mxschmitt/action-tmate@v3
+
             - name: Build the recipe
+              if: runner.os == 'Windows'
               shell: pixi run bash {0}
-              run: conda build -c conda-forge conda/recipe
+              working-directory: conda
+              env:
+                  CONFIG: ${{ matrix.CONFIG }}
+              run: |
+                  conda config --add channels conda-forge
+                  ./.ci_support/run_win_build.bat
+
+            - name: Build the recipe
+              if: runner.os != 'Windows'
+              shell: pixi run bash {0}
+              working-directory: conda
+              run: |
+                  conda config --add channels conda-forge
+                  conda build recipe -m .ci_support/${{ matrix.CONFIG }} --suppress-variables --output-folder conda-bld
 
             - name: upload on conda
-              if: github.event_name == 'release'
+              if: runner.os != 'Windows'
+              # if: github.event_name == 'release' && runner.os != 'Windows'
               shell: pixi run bash {0}
-              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force $HOME/conda-bld/*/splinart-*.tar.bz2
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force conda/conda-bld/*/splinart-*.conda
+
+            - name: upload on conda
+              # if: github.event_name == 'release' && runner.os == 'Windows'
+              if: runner.os == 'Windows'
+              shell: pixi run bash {0}
+              run: anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload --force conda/conda-bld/*/splinart-*.conda
