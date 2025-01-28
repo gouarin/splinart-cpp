@@ -14,7 +14,7 @@ jobs:
             matrix:
                 include:
                     - os: windows-latest
-                      CONFIG_FILE: win_64_.yaml
+                      CONFIG_FILE: win_64_
                     # - os: ubuntu-24.04
                     #   CONFIG: linux_64_.yaml
                     # - os: macos-13
