@@ -62,7 +62,7 @@ jobs:
               shell: pixi run bash {0}
               working-directory: conda
               run: |
-                  conda build recipe -m ci_support/${{ matrix.CONFIG }} --suppress-variables
+                  conda build recipe -m .ci_support/${{ matrix.CONFIG }} --suppress-variables
 
             - name: upload on conda
               if: github.event_name == 'release' && runner.os != 'Windows'
