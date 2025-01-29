@@ -6,30 +6,30 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'splinart'
-copyright = '2023, Loic Gouarin'
-author = 'Loic Gouarin'
+project = "splinart-cpp"
+copyright = "2023-2025, Loic Gouarin"
+author = "Loic Gouarin"
 
 import json
-release = json.load(open('../../.release-please-manifest.json'))['.']
+
+release = json.load(open("../../.release-please-manifest.json"))["."]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['breathe', 'myst_parser']
+extensions = ["breathe", "myst_parser"]
 
-breathe_projects = { 'splinart': '../xml' }
+breathe_projects = {"splinart": "../xml"}
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'pydata_sphinx_theme'
-html_static_path = ['_static']
+html_theme = "pydata_sphinx_theme"
+html_static_path = ["_static"]
 
 myst_enable_extensions = [
     "amsmath",
