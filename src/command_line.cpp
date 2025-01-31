@@ -6,11 +6,13 @@
 #include <fstream>
 
 #include <xtensor/xmath.hpp>
+#include <xtensor/xrandom.hpp>
 #include <xtensor/xtensor.hpp>
 
 #include <CLI/CLI.hpp>
 #include <splinart/build_img.hpp>
 #include <splinart/imshow.hpp>
+#include <splinart/shapes.hpp>
 
 using namespace xt::placeholders;
 
