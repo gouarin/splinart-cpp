@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/gouarin/splinart-cpp/compare/v0.4.4...v0.4.5) (2025-01-31)
+
+
+### Bug Fixes
+
+* clang-tidy ([#68](https://github.com/gouarin/splinart-cpp/issues/68)) ([0c84f9e](https://github.com/gouarin/splinart-cpp/commit/0c84f9efae62f1dbd41c3ecd59655864f8890a83))
+
 ## [0.4.4](https://github.com/gouarin/splinart-cpp/compare/v0.4.3...v0.4.4) (2025-01-28)
 
 
