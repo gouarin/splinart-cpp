@@ -1,16 +1,18 @@
+name: release-please
+
 on: workflow_dispatch
 
 permissions:
     contents: write
+    issues: write
     pull-requests: write
-
-name: release-please
 
 jobs:
     release-please:
         runs-on: ubuntu-24.04
         steps:
-            - uses: google-github-actions/release-please-action@v3
+            # A personal access token is needed so that publishing the release
+            # triggers the "release" event of the conda workflow.
+            - uses: googleapis/release-please-action@v5
               with:
                   token: ${{ secrets.RELEASE_PLEASE }}
-                  release-type: simple

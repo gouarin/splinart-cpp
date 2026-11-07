@@ -5,9 +5,9 @@
 #include <ctime>
 #include <fstream>
 
-#include <xtensor/xmath.hpp>
-#include <xtensor/xrandom.hpp>
-#include <xtensor/xtensor.hpp>
+#include <xtensor/containers/xtensor.hpp>
+#include <xtensor/core/xmath.hpp>
+#include <xtensor/generators/xrandom.hpp>
 
 #include <CLI/CLI.hpp>
 #include <splinart/build_img.hpp>
@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
     auto rand_radius  = 0.2 + 0.1 * xt::random::rand<double>(std::array<std::size_t, 2>{nb_circles, 1UL});
 
     std::vector<splinart::Circle> circles;
+    circles.reserve(nb_circles);
     for (std::size_t i = 0; i < nb_circles; i++)
     {
         circles.emplace_back(xt::view(rand_centers, i), xt::view(rand_radius, i)[0], 75);
