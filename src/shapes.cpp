@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright 2023-2025 SPLINART TEAM. All rights reserved.
 
-#include <xtensor/xbuilder.hpp>
-#include <xtensor/xfixed.hpp>
-#include <xtensor/xview.hpp>
+#include <xtensor/containers/xfixed.hpp>
+#include <xtensor/generators/xbuilder.hpp>
+#include <xtensor/views/xview.hpp>
 
 #include <splinart/shapes.hpp>
 
