@@ -10,22 +10,19 @@ jobs:
     pre-commit:
         runs-on: ubuntu-24.04
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-python@v3
-            - uses: pre-commit/action@v3.0.0
+            - uses: actions/checkout@v7
+            - uses: actions/setup-python@v7
+            - uses: pre-commit/action@v3.0.1
 
     cppcheck:
         runs-on: ubuntu-24.04
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v7
 
-            - uses: prefix-dev/setup-pixi@v0.8.1
+            - uses: prefix-dev/setup-pixi@v0.11.3
               with:
-                  pixi-version: v0.40.2
+                  pixi-version: v0.84.1
                   cache: true
-
-            - name: cppcheck installation
-              run: pixi add cppcheck
 
             - name: Configure
               run: |
@@ -39,7 +36,7 @@ jobs:
                   then
                     cat checkers_report.txt
                     cat cppcheck_err.txt
-                    exit -1
+                    exit 1
                   fi
 
     tests:
@@ -51,12 +48,13 @@ jobs:
                 os:
                     - ubuntu-24.04
                     - macos-latest
+                    - windows-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v7
 
-            - uses: prefix-dev/setup-pixi@v0.8.1
+            - uses: prefix-dev/setup-pixi@v0.11.3
               with:
-                  pixi-version: v0.40.2
+                  pixi-version: v0.84.1
                   cache: true
 
             - run: pixi run test
